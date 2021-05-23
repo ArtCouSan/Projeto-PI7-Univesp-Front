@@ -1,0 +1,8 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span>Selecione o estado em que mora</span>
+    </mat-toolbar-row>
+</mat-toolbar>
+<mat-nav-list>
+    <a mat-list-item routerLink="{{estado.sigla}}/transportes" *ngFor="let estado of estados"> {{ estado.nome }} </a>
+ </mat-nav-list>
