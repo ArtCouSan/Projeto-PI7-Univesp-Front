@@ -1,8 +1,14 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>Selecione o ônibus</span>
-    </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span>Selecione o ônibus</span>
+  </mat-toolbar-row>
 </mat-toolbar>
 <mat-nav-list>
-    <a mat-list-item routerLink="../onibus/{{onibus.placa}}" *ngFor="let onibus of listaOnibus"> {{ onibus.nome }} </a>
- </mat-nav-list>
+  <a
+    mat-list-item
+    routerLink="../onibus/{{ onibus.placa }}"
+    *ngFor="let onibus of listaOnibus"
+  >
+    {{onibus.identificacao}} - <b style="margin-left: 5px; margin-right: 5px"> Sentido ida: </b> {{ onibus.sentidoIda }} <b style="margin-left: 5px; margin-right: 5px"> com Sentido volta: </b>{{ onibus.sentidoVolta }}
+  </a>
+</mat-nav-list>

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { OnibusService } from 'src/app/core/services/onibus.service';
+import { OnibusStatus } from 'src/app/shared/enums/onibus-status.enum';
+import { Onibus } from 'src/app/shared/models/onibus.model';
 
 @Component({
   selector: 'app-listar-onibus',
@@ -7,13 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarOnibusComponent implements OnInit {
 
-  listaOnibus = [
-    {"nome": "Jd. Angela", "placa": 123},
-  ]
+  private listaOnibus: Array<Onibus>;
+  private uf: string;
 
-  constructor() { }
+  constructor(private readonly onibusService: OnibusService,
+    private readonly route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.params.subscribe(params => {
+      this.uf = params['estado'];
+      console.log(this.uf);
+      this.onibusService.listarOnibusPorEstadoEStatus(this.uf, OnibusStatus.ativo).subscribe({
+        next: response => {
+          this.listaOnibus = response;
+          console.log(this.listaOnibus);
+        }
+      })
+   });
   }
 
 }

@@ -12,7 +12,10 @@ import { ListarOnibusComponent } from './modules/listar-onibus/listar-onibus.com
 import { PegarOnibusComponent } from './modules/pegar-onibus/pegar-onibus.component';
 import { ListarMiniOnibusComponent } from './modules/listar-mini-onibus/listar-mini-onibus.component';
 import { ListarTremMetroComponent } from './modules/listar-trem-metro/listar-trem-metro.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 
+const config: SocketIoConfig = { url: 'http://127.0.0.1:8000/', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +31,9 @@ import { ListarTremMetroComponent } from './modules/listar-trem-metro/listar-tre
     AppRoutingModule,
     BrowserAnimationsModule,
     MatListModule,
-    MatToolbarModule
+    MatToolbarModule,
+    HttpClientModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [],
   bootstrap: [AppComponent]
