@@ -5,17 +5,15 @@ import { ListarMiniOnibusComponent } from './modules/listar-mini-onibus/listar-m
 import { ListarOnibusComponent } from './modules/listar-onibus/listar-onibus.component';
 import { ListarTiposTransporteComponent } from './modules/listar-tipos-transporte/listar-tipos-transporte.component';
 import { ListarTremMetroComponent } from './modules/listar-trem-metro/listar-trem-metro.component';
-import { PegarOnibusComponent } from './modules/pegar-onibus/pegar-onibus.component';
 
 
 const routes: Routes = [
   { path: 'listar/estados', component: ListarEstadosComponent },
   { path: 'listar/estados/:estado/transportes', component: ListarTiposTransporteComponent },
-  { path: 'listar/estados/:estado/transportes/onibus', component:  ListarOnibusComponent},
-  { path: 'listar/estados/:estado/transportes/mini-oni', component:  ListarMiniOnibusComponent},
-  { path: 'listar/estados/:estado/transportes/trem-metro', component:  ListarTremMetroComponent},
-  { path: 'listar/estados/:estado/transportes/onibus/:onibus', component: PegarOnibusComponent },
-  { path: '',   redirectTo: '/listar/estados', pathMatch: 'full' }
+  { path: 'listar/estados/:estado/transportes/onibus', component: ListarOnibusComponent },
+  { path: 'listar/estados/:estado/transportes/mini-oni', component: ListarMiniOnibusComponent },
+  { path: 'listar/estados/:estado/transportes/trem-metro', component: ListarTremMetroComponent },
+  { path: '', redirectTo: '/listar/estados', pathMatch: 'full' }
 ];
 
 @NgModule({

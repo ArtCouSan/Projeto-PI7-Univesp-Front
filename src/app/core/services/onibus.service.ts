@@ -9,7 +9,7 @@ import { Onibus } from 'src/app/shared/models/onibus.model';
 })
 export class OnibusService {
 
-    private urlApi = 'http://127.0.0.1:8000/onibus/';
+    private urlApi = 'http://localhost:3000/onibus';
 
     constructor(private httpClient: HttpClient) { }
 

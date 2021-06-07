@@ -1,14 +1,21 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <span>Selecione o ônibus</span>
+    <span>Onibus da sua região</span>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-nav-list>
-  <a
-    mat-list-item
-    routerLink="../onibus/{{ onibus.placa }}"
+  <p
+    [id]="onibus.placa"
+    class="paragrafo"
     *ngFor="let onibus of listaOnibus"
   >
-    {{onibus.identificacao}} - <b style="margin-left: 5px; margin-right: 5px"> Sentido ida: </b> {{ onibus.sentidoIda }} <b style="margin-left: 5px; margin-right: 5px"> com Sentido volta: </b>{{ onibus.sentidoVolta }}
-  </a>
+    <b class="espacamento"> Tem vaga? </b>
+    <label>{{ onibus.estaLotado ? "Não" : "Sim" }} - </label>
+    <b class="espacamento"> Linha: </b>
+    <label> {{ onibus.identificacao }} - </label>
+    <b class="espacamento"> Sentido de ida: </b>
+    <label> {{ onibus.sentidoIda }} </label>
+    <b class="espacamento"> com Sentido de volta: </b>
+    <label> {{ onibus.sentidoVolta }} </label>
+  </p>
 </mat-nav-list>
